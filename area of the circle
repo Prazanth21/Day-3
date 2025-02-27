@@ -1,0 +1,42 @@
+using System;
+
+class Circle
+{
+    public double Radius { get; set; }
+
+    public void GetRadius()
+    {
+        Console.Write("Enter the radius: ");
+        if (double.TryParse(Console.ReadLine(), out double radius))
+        {
+            Radius = radius;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+        }
+    }
+
+    public double CalculateArea()
+    {
+        return Math.PI * Radius * Radius;
+    }
+}
+
+class Program
+{
+    public static void Main()
+    {
+        Circle obj = new Circle();
+        obj.GetRadius();
+
+        if (obj.Radius != 0) 
+        {
+            double area = obj.CalculateArea();
+            Console.WriteLine($"Area of the circle: {area}");
+        }
+    }
+}
+
+//  Enter the radius: 20
+//  Area of the circle: 1256.6370614359173
