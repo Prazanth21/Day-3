@@ -1,0 +1,35 @@
+using System;
+
+class ReadOnly
+{
+    public const int ConstValue = 20;
+
+    public readonly int ReadOnlyvalue;
+
+    public ReadOnly(int value) 
+    {
+        ReadOnlyvalue = value;
+    }
+
+    public void TryModify() 
+    {
+      //  ReadOnlyvalue =20;
+    }
+
+
+
+}
+
+class Program
+{
+    static void Main() 
+    {
+        ReadOnly read = new ReadOnly(10);
+        Console.WriteLine($"readony : {read.ReadOnlyvalue}");
+        Console.WriteLine($"Const value : {ReadOnly.ConstValue}");
+
+    }
+}
+
+// readony: 10
+// Const value : 20
