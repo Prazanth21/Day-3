@@ -1,0 +1,42 @@
+using System;
+using System.Diagnostics.Metrics;
+
+class Program 
+{
+    static void Main() 
+    {
+        try
+        {
+            Console.Write("Enter a input : ");
+
+            string input = Console.ReadLine();
+
+            int number = Convert.ToInt32(input);
+
+            Console.WriteLine($"You Entered Number : {number}");
+
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine($"Format exception : Enter a vaild input: ");
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"General Error: {ex.Message}");
+        }
+        finally 
+        {
+            Console.WriteLine("Exception completed");
+        }
+    }
+}
+
+//  Enter a input : Prasanth
+//  Format exception : Enter a vaild input:
+//  Exception completed
+
+
+//  Enter a input : 1000
+//  You Entered Number : 1000
+//  Exception completed
