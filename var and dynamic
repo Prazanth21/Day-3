@@ -1,0 +1,37 @@
+using System;
+
+class Program
+{
+    public static void Main()
+    {
+        var number = 1000;
+
+        Console.WriteLine($"the value of number is {number},type : {number.GetType()}");
+
+        // number = "hello";
+
+        dynamic value = "hello ";
+
+        Console.WriteLine();
+
+        Console.WriteLine($"value = {value},type : {value.GetType()}");
+
+        value = 2020;
+
+        Console.WriteLine();
+        Console.WriteLine($"The Value = {value},Type = {value.GetType()}");
+
+        var result = GetNumber();
+        Console.WriteLine($"value = {result},Type = {result.GetType}");
+
+    }
+    static int GetNumber()
+    {
+        return 40;
+    }
+}
+
+
+// the value of number is 1000, type : System.Int32
+
+// value = hello, type : System.String
