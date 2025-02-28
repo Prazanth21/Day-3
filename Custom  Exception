@@ -1,0 +1,70 @@
+using System;
+using System.Diagnostics.Metrics;
+
+class InvalidMarkException : Exception
+{
+    public InvalidMarkException(string message) : base(message)
+    {
+    }
+}
+
+class Student
+{
+    public string Name { get; set; }
+    public int Marks { get; set; }
+
+    public Student(string name, int marks)
+    {
+        if (marks < 0 || marks > 100)
+        {
+            throw new InvalidMarkException($"invalid Exception : {marks}. Marks should be greater than 0 and less than 100");
+        }
+        Name = name;
+        Marks = marks;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Name : {Name}, Marks : {Marks}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Enter the Name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter the Marks: ");
+            int marks = Convert.ToInt32(Console.ReadLine());
+
+            Student student = new Student(name, marks);
+            student.Display();
+        }
+        catch (InvalidMarkException ex)
+        {
+            Console.WriteLine($"the message : {ex.Message}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Error: Please enter a valid numeric value for marks.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"General Exception: {ex.Message}");
+        }
+        finally
+        {
+            Console.WriteLine("Execution Completed.");
+        }
+    }
+}
+
+
+//  Enter the Name: Prasanth
+//  Enter the Marks: 120
+//  the message : invalid Exception : 120.Marks should be greater than 0 and less than 100
+//  Execution Completed.
