@@ -1,0 +1,54 @@
+using System;
+using System.Diagnostics.Metrics;
+using System.Numerics;
+
+class Program 
+{
+    static void Main() 
+    {
+        try
+        {
+            Console.Write("Enter the Numerator: ");
+
+            int Numerator = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the denominator: ");
+
+            int Denominator = Convert.ToInt32(Console.ReadLine());
+
+            var result = Numerator / Denominator;
+
+            Console.WriteLine($"result= {result}");
+
+        }
+        catch (DivideByZeroException)
+        {
+            Console.WriteLine("Can't divide by Zero");
+
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Error: Invalid input. Please enter valid integer numbers.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+        }
+        finally 
+        {
+            Console.WriteLine("Exception is completed");
+        }
+    }
+}
+
+
+//  Enter the Numerator: 23
+//  Enter the denominator: 0
+//  Can't divide by Zero
+//  Exception is completed
+
+
+//  Enter the Numerator: 23
+//  Enter the denominator: a
+//  Error: Invalid input. Please enter valid integer numbers.
+//  Exception is completed
